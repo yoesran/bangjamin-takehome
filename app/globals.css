@@ -1,0 +1,350 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #ea5f2a;
+  --color-primary-light: #ff7944;
+  --color-primary-strong: #b54a17;
+  --color-coral: #f88870;
+  --color-ink: #0f0f0f;
+
+  --color-lemon: #f8d470;
+  --color-magenta: #e34982;
+  --color-lime: #d9df50;
+  --color-cream: #fdf7e9;
+
+  --color-danger: #c62828;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #15803d;
+
+  --color-grey10: #f5f5f5;
+  --color-grey20: #e7e7e7;
+  --color-grey40: #b7b7b7;
+  --color-grey50: #9f9f9f;
+  --color-grey60: #767676;
+  --color-grey90: #3f3f3f;
+
+  --font-display: 'Chillax', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Mulish', ui-sans-serif, system-ui, sans-serif;
+
+  --animate-shimmer: shimmer 2s infinite;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html:has(main[data-funnel]) {
+    scrollbar-gutter: stable;
+  }
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-grey10);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: var(--color-primary);
+  outline-offset: -2px;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #ececec 25%, #f5f5f5 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+}
+
+@keyframes bjTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bjSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bjSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bjSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bjFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bjSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bjScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bjStarFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+}
+
+.anim-title {
+  animation: bjTitleIn 1s ease-out 0.6s both;
+}
+.anim-subtitle {
+  animation: bjTitleIn 1s ease-out 0.85s both;
+}
+.anim-character {
+  animation: bjSlideRight 1s ease-out 0.4s both;
+}
+
+.anim-logo {
+  animation: bjFadeIn 0.8s ease-out both;
+}
+.anim-nav {
+  animation: bjSlideDown 0.6s ease-out both;
+}
+.anim-cardin {
+  animation: bjTitleIn 0.8s ease-out both;
+}
+.anim-block {
+  animation: bjSlideLeft 0.8s ease-out both;
+}
+.anim-tile {
+  animation: bjScaleIn 0.5s ease-out both;
+}
+.anim-help {
+  animation: bjTitleIn 0.6s ease-out both;
+}
+.anim-feature {
+  animation: bjScaleIn 0.6s ease-out both;
+}
+.anim-up {
+  animation: bjSlideUp 0.8s ease-out both;
+}
+.star-float {
+  animation: bjStarFloat 3s ease-in-out infinite;
+}
+
+.introduce-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+.introduce-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+.introduce-card:hover::before,
+.introduce-card:focus-within::before {
+  opacity: 1;
+}
+.introduce-card:hover,
+.introduce-card:focus-within {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.testi-card {
+  box-shadow: 8px 8px 0 0 rgb(65, 64, 71);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.testi-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testi-photo,
+.testi-quote {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.testi-photo {
+  transition-property: transform, filter;
+}
+.testi-card:hover .testi-photo {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+.testi-card:hover .testi-quote {
+  transform: scale(1.1) rotate(6deg);
+}
+
+.faq-item {
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.faq-item:hover {
+  transform: scale(1.015) translateY(-4px);
+  box-shadow:
+    0 12px 40px rgba(107, 114, 128, 0.12),
+    0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.hero-character {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-character:hover {
+  transform: scale(1.05);
+}
+
+.protection-tile {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reward-chip {
+  transition: all 0.3s ease;
+}
+.reward-chip:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+.sahabat-cta {
+  transition: all 0.3s ease;
+}
+.sahabat-cta:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(15, 15, 15, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
